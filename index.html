@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>KIMUART ｜ 畫溫暖的圖，給喜歡的人</title>
+<meta name="description" content="用 Procreate 畫下生活裡的溫暖，讓創作成為療癒自己、祝福他人的方式。你不需要很厲害，也不需要先準備好——我們從一張小圖開始。" />
+<!-- 社群分享預覽（IG / LINE / FB） -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="KIMUART ｜ 畫溫暖的圖，給喜歡的人" />
+<meta property="og:description" content="用 Procreate 畫下生活裡的溫暖，讓創作成為療癒自己、祝福他人的方式。" />
+<meta property="og:url" content="https://kimu.art/" /> <!-- TODO: 換成正式首頁網址 -->
+<meta property="og:image" content="" /> <!-- TODO: 補上分享縮圖網址（建議 1200×630） -->
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FFFFFF; --paper-2:#FAF7F3; --sand:#F2EDE6; --sand-line:#E9E2D8;
+    --ink:#3E322A; --ink-soft:#6B5E53; --ink-faint:#A99C8D;
+    --terra:#B96B41; --terra-deep:#9E5530; --glow:#F7E6C9;
+    --maxw:1080px; --measure:600px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--paper); color:var(--ink-soft);
+    font-family:"Noto Sans TC",system-ui,sans-serif; font-weight:300;
+    font-size:17px; line-height:1.95; letter-spacing:.02em;
+    -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  }
+  body::before{
+    content:""; position:fixed; inset:0; pointer-events:none; z-index:1; opacity:.04;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  h1,h2,h3{font-family:"Noto Serif TC",serif; color:var(--ink); font-weight:600; line-height:1.45; letter-spacing:.03em;}
+  strong{font-weight:500; color:var(--ink);}
+  a{color:var(--terra-deep);}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 26px; position:relative; z-index:2;}
+  .narrow{max-width:var(--measure); margin-left:auto; margin-right:auto;}
+  section{padding:80px 0; position:relative;}
+  @media(max-width:680px){ section{padding:56px 0;} body{font-size:16px;} }
+
+  .eyebrow{font-family:"Cormorant Garamond",serif; font-size:1.05rem; letter-spacing:.32em; text-transform:uppercase; color:var(--terra); font-weight:600; margin:0 0 14px;}
+  .zh-eyebrow{font-size:.82rem; letter-spacing:.42em; color:var(--terra); font-weight:500; margin:0 0 18px; font-family:"Noto Sans TC";}
+
+  .btn{
+    display:inline-flex; align-items:center; gap:.6em; background:var(--terra); color:#FFF8EF;
+    font-family:"Noto Sans TC"; font-weight:500; font-size:1.02rem; letter-spacing:.06em;
+    padding:15px 30px; border-radius:40px; text-decoration:none; border:none; cursor:pointer;
+    box-shadow:0 10px 26px -12px rgba(158,85,48,.6);
+    transition:transform .25s ease, background .25s ease, box-shadow .25s ease;
+  }
+  .btn:hover{background:var(--terra-deep); transform:translateY(-2px); box-shadow:0 16px 30px -12px rgba(158,85,48,.65);}
+  .btn-ghost{
+    display:inline-flex; align-items:center; gap:.6em; background:transparent; color:var(--terra-deep);
+    font-family:"Noto Sans TC"; font-weight:500; font-size:1.02rem; letter-spacing:.06em;
+    padding:13px 28px; border-radius:40px; text-decoration:none; border:1.5px solid var(--terra);
+    transition:transform .25s ease, background .25s ease;
+  }
+  .btn-ghost:hover{background:var(--glow); transform:translateY(-2px); color:var(--terra-deep);}
+  .btn .dot{width:7px;height:7px;border-radius:50%;background:var(--glow);}
+  .btn-row{display:flex; flex-wrap:wrap; gap:14px; justify-content:center; margin-top:30px;}
+
+  /* image placeholders (圖檔待上傳) */
+  .ph{
+    background:linear-gradient(135deg,#F6ECE3,#EFE0D2); border:1px solid var(--sand-line);
+    border-radius:16px; display:flex; align-items:center; justify-content:center; text-align:center;
+    color:var(--terra); padding:18px;
+  }
+  .ph .mk{font-family:"Cormorant Garamond",serif; font-style:italic; font-size:1.05rem; letter-spacing:.1em; opacity:.65; line-height:1.5;}
+
+  /* hero banner */
+  .hero-band{padding:0; width:100%; line-height:0;}
+  .hero-band .hero-img{display:block; width:100%; aspect-ratio:3.75/1; object-fit:cover; object-position:center;}
+  @media(max-width:680px){ .hero-band .hero-img{aspect-ratio:2.5/1;} }
+  .hero-ph{width:100%; aspect-ratio:1600/430; border:none; border-radius:0;}
+  .hero-ph .mk{font-size:1.25rem;}
+
+  /* hero 標題 */
+  .hero{text-align:center; padding:54px 0 34px;}
+  .hero h1{font-size:clamp(2.1rem,5.8vw,3.3rem); margin:6px 0 22px; line-height:1.4;}
+  .hero .lead{font-size:1.08rem; color:var(--ink-soft); max-width:560px; margin:0 auto; line-height:2.05;}
+  .hero-fig{display:block; width:100%; max-width:360px; height:auto; margin:30px auto 0;}
+
+  /* manifesto band（先接住人，再介紹產品） */
+  .manifesto{background:var(--paper); padding:64px 0 70px;}
+  .manifesto .m-inner{max-width:560px; margin:0 auto; text-align:center;}
+  .manifesto .divider{width:54px; height:2px; background:var(--terra); opacity:.5; margin:0 auto 28px; border-radius:2px;}
+  .manifesto p{font-family:"Noto Serif TC"; color:var(--ink); font-size:1.12rem; line-height:2.1; margin:0 0 20px; letter-spacing:.02em;}
+  .manifesto p:last-child{margin-bottom:0;}
+  .manifesto p.soft{color:var(--ink-soft); font-family:"Noto Sans TC"; font-weight:300; font-size:1.04rem;}
+  @media(max-width:680px){ .manifesto{padding:48px 0 52px;} .manifesto p{font-size:1.06rem;} }
+
+  /* 區塊插圖（置中、圓角、隨內容寬度縮放） */
+  .section-img{display:block; width:100%; height:auto; border-radius:16px; margin:0 auto;}
+  .section-img.top{max-width:420px; margin:0 auto 30px;}
+  .section-img.mid{max-width:760px; margin:34px auto 0;}
+  .section-img.bottom{max-width:760px; margin:46px auto 0;}
+
+  /* section heads */
+  .sec-head{text-align:center; margin-bottom:40px;}
+  .sec-head h2{font-size:clamp(1.5rem,3.6vw,2.05rem); margin:0;}
+  .sec-head .sub{color:var(--ink-soft); font-size:1rem; margin-top:14px; max-width:560px; margin-left:auto; margin-right:auto;}
+  .divider{width:54px; height:2px; background:var(--terra); opacity:.5; margin:0 auto 22px; border-radius:2px;}
+
+  .bs-desc{font-size:1rem; color:var(--ink-soft); line-height:2; margin:0 auto 16px; max-width:600px;}
+
+  /* 免費資源（淺奶油底，2×2 清單卡） */
+  .freeres{background:var(--paper-2);}
+  .freeres .fr-list{display:grid; grid-template-columns:repeat(2,1fr); gap:16px; max-width:720px; margin:0 auto;}
+  .freeres .fr-item{
+    background:var(--paper); border:1px solid var(--sand-line); border-radius:14px;
+    padding:22px 24px; display:flex; gap:14px; align-items:flex-start;
+  }
+  .freeres .fr-item .ic{color:var(--terra); font-size:1.2rem; line-height:1.4; flex-shrink:0;}
+  .freeres .fr-item h3{font-size:1.02rem; margin:0 0 4px; color:var(--ink);}
+  .freeres .fr-item p{margin:0; font-size:.9rem; color:var(--ink-soft); line-height:1.7;}
+  .freeres .fr-cta{text-align:center; margin-top:40px;}
+  @media(max-width:600px){ .freeres .fr-list{grid-template-columns:1fr; max-width:420px;} }
+
+  /* 繪畫教學（首頁主軸，白底大區） */
+  .teaching{background:var(--paper);}
+  .teaching .t-lead{font-family:"Noto Serif TC"; color:var(--ink); font-size:1.1rem; line-height:2; text-align:center; max-width:600px; margin:0 auto 40px;}
+  .tgrid{display:grid; grid-template-columns:repeat(2,1fr); gap:24px; max-width:880px; margin:0 auto;}
+  .tcard{background:var(--paper); border:1px solid var(--sand-line); border-radius:16px; overflow:hidden; display:flex; flex-direction:column;}
+  a.tcard{text-decoration:none; color:inherit; transition:transform .25s ease, box-shadow .25s ease;}
+  a.tcard:hover{transform:translateY(-3px); box-shadow:0 16px 34px -22px rgba(67,53,43,.38);}
+  .tcard .c-img{aspect-ratio:1200/675; overflow:hidden; background:var(--sand);}
+  .tcard .c-img img{width:100%; height:100%; object-fit:cover; display:block;}
+  .tcard .c-img.ph{border-radius:0;}
+  .tcard .c-body{padding:20px 24px 24px; display:flex; flex-direction:column; gap:8px; flex:1;}
+  .tcard .tag{font-size:.72rem; letter-spacing:.16em; color:var(--terra); font-weight:500;}
+  .tcard h3{font-family:"Noto Serif TC"; color:var(--ink); font-weight:600; font-size:1.12rem; line-height:1.5; margin:0;}
+  .tcard p{color:var(--ink-soft); font-weight:300; font-size:.92rem; line-height:1.75; margin:0;}
+  .teaching .t-cta{text-align:center; margin-top:46px;}
+  @media(max-width:680px){ .tgrid{grid-template-columns:1fr; max-width:420px;} }
+
+  /* 創作諮詢（淺奶油底，左圖右文卡片） */
+  .coach{background:var(--paper-2);}
+  .coach .coach-card{
+    max-width:880px; margin:0 auto; display:flex; align-items:stretch; gap:0;
+    background:var(--paper); border:1px solid var(--sand-line);
+    border-radius:22px; overflow:hidden; box-shadow:0 18px 44px -28px rgba(67,53,43,.3);
+  }
+  .coach .cc-img{width:44%; flex-shrink:0; background:var(--sand); object-fit:cover;}
+  .coach .cc-img.ph{border-radius:0; min-height:280px;}
+  .coach .cc-text{flex:1; padding:44px 46px; text-align:left; display:flex; flex-direction:column; justify-content:center;}
+  .coach .cc-text .glab{font-size:.78rem; letter-spacing:.2em; color:var(--terra); font-weight:500; margin:0 0 12px;}
+  .coach .cc-text h2{font-size:clamp(1.3rem,3vw,1.7rem); margin:0 0 18px;}
+  .coach .cc-text .q{font-family:"Noto Serif TC"; color:var(--ink); font-size:1.05rem; line-height:1.9; margin:0 0 14px;}
+  .coach .cc-text p{margin:0 0 26px; font-size:.96rem; color:var(--ink-soft); line-height:1.95;}
+  @media(max-width:760px){
+    .coach .coach-card{flex-direction:column;}
+    .coach .cc-img{width:100%;}
+    .coach .cc-img.ph{min-height:0; aspect-ratio:1200/675;}
+    .coach .cc-text{padding:34px 30px; text-align:center;}
+  }
+
+  /* 關於 KIMU（白底，圖文並排） */
+  .about{background:var(--paper);}
+  .about .ab-inner{max-width:880px; margin:0 auto; display:flex; align-items:center; gap:48px;}
+  .about .ab-fig{width:38%; flex-shrink:0;}
+  .about .ab-fig img{width:100%; height:auto; display:block; border-radius:18px;}
+  .about .ab-fig.ph{aspect-ratio:4/5; border-radius:18px;}
+  .about .ab-text{flex:1; text-align:left;}
+  .about .ab-text h2{font-size:clamp(1.5rem,3.4vw,2rem); margin:0 0 22px;}
+  .about .ab-text p{font-size:1.02rem; color:var(--ink-soft); line-height:2.05; margin:0 0 18px;}
+  .about .ab-text .btn-ghost{margin-top:8px;}
+  @media(max-width:760px){
+    .about .ab-inner{flex-direction:column; gap:30px; text-align:center;}
+    .about .ab-fig{width:62%; max-width:280px;}
+    .about .ab-text{text-align:center;}
+  }
+
+  /* footer CTA */
+  .footer-cta{background:var(--sand); text-align:center; padding:84px 0;}
+  .footer-cta .inner{max-width:620px; margin:0 auto; padding:0 26px;}
+  .footer-cta h2{font-size:clamp(1.4rem,3.5vw,1.9rem); margin:0 0 18px;}
+  .footer-cta .cta-keep{font-family:"Noto Serif TC"; color:var(--ink); font-size:1.05rem; line-height:2; margin:0 0 30px;}
+  @media(max-width:480px){ .footer-cta{padding:62px 0;} }
+
+  footer{background:var(--ink); color:#E9DCC9; text-align:center; padding:52px 26px;}
+  footer .bk{font-family:"Cormorant Garamond",serif; font-size:1.5rem; letter-spacing:.2em; color:#F4D3B4;}
+  footer .links{margin-top:16px; font-size:.9rem; letter-spacing:.1em;}
+  footer a{color:#E9DCC9; text-decoration:none; border-bottom:1px solid rgba(244,211,180,.4); padding-bottom:2px;}
+  footer a:hover{color:#fff;}
+  footer .links span{margin:0 12px; opacity:.4;}
+
+  .reveal{opacity:0; transform:translateY(22px); transition:opacity .8s ease, transform .8s ease;}
+  .reveal.in{opacity:1; transform:none;}
+  @media(prefers-reduced-motion:reduce){ .reveal{opacity:1; transform:none; transition:none;} html{scroll-behavior:auto;} }
+</style>
+</head>
+<body>
+
+<!-- ============ HERO BANNER ============ -->
+<div class="hero-band">
+  <img class="hero-img" src="https://s.teachifycdn.com/image/width=2048,quality=80/school/images/5074e626-2f0a-46c6-8933-ca6be018dd0f.jpg" alt="KIMUART 主視覺——畫溫暖的圖，給喜歡的人" />
+</div>
+
+<!-- ============ HERO 標題 ============ -->
+<section class="hero">
+  <div class="wrap narrow">
+    <p class="eyebrow reveal">KIMUART</p>
+    <h1 class="reveal">畫溫暖的圖，<br>給喜歡的人。</h1>
+    <p class="lead reveal">每一張圖，都是禮物。每個創作，都是祝福。</p>
+    <div class="btn-row reveal">
+      <a class="btn" href="https://course.kimu.art/free" target="_blank" rel="noopener"><span class="dot"></span>免費開始學畫畫</a>
+      <a class="btn-ghost" href="https://course.kimu.art/paintingclass" target="_blank" rel="noopener">查看繪畫課程 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MANIFESTO（先接住人） ============ -->
+<section class="manifesto">
+  <div class="wrap">
+    <div class="m-inner reveal">
+      <img class="section-img top" src="https://s.teachifycdn.com/image/width=2048,quality=80/school/images/db5197bc-18d5-408f-ab9d-560ce33e0ed8.png" alt="KIMU 的手繪插畫" style="max-width:170px;" />
+      <div class="divider"></div>
+      <p>學畫畫的這些年，我最深的體會是——<br>原來不用很高深的技法，<br>就能享受創作帶來的快樂。</p>
+      <p class="soft">不需要先把自己準備好。<br>我們可以慢慢來，從一張小圖開始，<br>畫下生活裡的溫暖，讓創作成為了解自己、祝福他人的方式。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 免費資源 ============ -->
+<section class="freeres">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="zh-eyebrow">Start Here</p>
+      <h2>先從這裡開始</h2>
+      <p class="sub">第一次來 KIMUART，可以先從免費資源開始，用最低的門檻，畫下你的第一張圖。</p>
+    </div>
+    <img class="section-img mid reveal" src="https://s.teachifycdn.com/image/width=2048,quality=80/school/images/475758df-d9ae-48ce-81ac-68c8b2ad7ff4.png" alt="跟著 KIMU 畫下的生活小圖" style="margin-bottom:40px;" />
+    <div class="fr-list reveal">
+      <div class="fr-item">
+        <span class="ic">✦</span>
+        <div><h3>免費 Procreate 筆刷</h3><p>KIMU 特調筆刷組，跟著畫就能畫出手繪水彩感。</p></div>
+      </div>
+      <div class="fr-item">
+        <span class="ic">✦</span>
+        <div><h3>Procreate 新手保姆課</h3><p>從零開始，帶你熟悉 iPad 畫畫的第一步。（籌備中）</p></div>
+      </div>
+      <div class="fr-item">
+        <span class="ic">✦</span>
+        <div><h3>iPad / Procreate 設備選購指南</h3><p>依預算與需求，挑出最適合你的工具。</p></div>
+      </div>
+      <div class="fr-item">
+        <span class="ic">✦</span>
+        <div><h3>主題直播回放</h3><p>一邊聽、一邊畫，慢慢熟悉創作的節奏。</p></div>
+      </div>
+    </div>
+    <div class="fr-cta reveal">
+      <a class="btn" href="https://course.kimu.art/free" target="_blank" rel="noopener"><span class="dot"></span>領取免費資源</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 繪畫教學（首頁主軸） ============ -->
+<section class="teaching">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="zh-eyebrow">Learn to Paint</p>
+      <h2>線上繪畫教學</h2>
+      <p class="sub">想更完整、更系統化的學習繪畫創作，可以參考完整的線上課程。</p>
+    </div>
+    <div class="tgrid">
+      <a class="tcard reveal" href="https://course.kimu.art/courses/noviceclass" target="_blank" rel="noopener">
+        <div class="c-img"><img src="https://warehouse.kaik.network/course/cover_photo/e18f4dd0-6efb-43bb-b6ca-d6bc58f4d310/c970b556-ce74-4ba4-adb0-bf8e74f6ac9f.jpg" alt="繪畫課程封面" /></div>
+        <div class="c-body">
+          <span class="tag">線上課程</span>
+          <h3>繪畫課程</h3>
+          <p>有系統地學畫畫，從基礎到完整作品，把畫畫變成生活習慣。</p>
+        </div>
+      </a>
+      <a class="tcard reveal" href="https://course.kimu.art/digital-downloads/categories/brushes" target="_blank" rel="noopener">
+        <div class="c-img"><img src="https://warehouse.kaik.network/digital_product/cover_photo/13864899-f0a4-420e-9eb5-d49df759fc16/769b1c64-247c-4dde-b10f-82b9befbd862.jpg" alt="手繪感神助攻－雙筆刷組合商品圖" /></div>
+        <div class="c-body">
+          <span class="tag">數位素材</span>
+          <h3>付費筆刷／素材包</h3>
+          <p>讓你的創作更順手，畫出更有層次的作品。</p>
+        </div>
+      </a>
+    </div>
+    <div class="t-cta reveal">
+      <a class="btn" href="https://course.kimu.art/paintingclass" target="_blank" rel="noopener"><span class="dot"></span>查看所有課程</a>
+    </div>
+    <img class="section-img bottom reveal" src="https://s.teachifycdn.com/image/width=2048,quality=80/school/images/b468f0b0-7098-42c5-9758-9dd8ed9ac3f8.png" alt="KIMU 的繪畫作品" style="max-width:200px;" />
+  </div>
+</section>
+
+<!-- ============ 創作諮詢 ============ -->
+<section class="coach">
+  <div class="wrap">
+    <div class="coach-card reveal">
+      <img class="cc-img" src="https://s.teachifycdn.com/image/width=2048,quality=80/school/images/52b677e7-1d2a-4987-9130-63760bc28882.JPG" alt="KIMU 創作諮詢｜即時的內在速寫" />
+      <div class="cc-text">
+        <p class="glab">Visual Coaching</p>
+        <h2>用對話與繪畫，陪你看見創作下一步
+        </h2>
+        <p class="q">有時候我們創作卡關不是因為技法，而是是心裡有些聲音，還沒被好好看見。</p>
+        <p>透過深度對話與即時的「內在速寫」，<br>陪你把模糊的感受、卡住的地方、創作的下一步，<br>畫成一張看得見、可以帶走的線索。</p>
+        <div><a class="btn-ghost" href="https://course.kimu.art/visualcoach" target="_blank" rel="noopener">了解 1v1 創作諮詢 →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 關於 KIMU ============ -->
+<section class="about">
+  <div class="wrap">
+    <div class="ab-inner reveal">
+      <div class="ab-fig"><img src="https://s.teachifycdn.com/image/width=2048,quality=80/school/images/b3490c22-a7e1-4c27-a0cd-5021f3658a5f.jpg" alt="插畫家 KIMU" /></div>
+      <div class="ab-text">
+        <h2>關於 KIMU</h2>
+        <p>我是 KIMU。其實我也是半路出家學畫畫，曾經花別人兩三倍的時間練習，半夜邊哭邊畫，也懷疑過自己到底有沒有天份，還是該轉行賣雞排。</p>
+        <p>後來才知道——原來畫畫學的從不只是技法，而更多的是一種與看見與表達自己的方式。</p>
+        <p>所以我想做的，不只是教你畫畫，而是陪你用創作與自己相處，再把這份溫暖，送給你喜歡的人。</p>
+        <!-- TODO: 換成「關於我」頁面網址 -->
+        <a class="btn-ghost" href="#" target="_blank" rel="noopener">認識 KIMU →</a>
+      </div>
+    </div>
+    <img class="section-img reveal" src="https://s.teachifycdn.com/image/width=2048,quality=80/school/images/9fe75208-8c56-4c07-ac91-171a61bff392.jpg" alt="KIMU 的繪畫作品集" style="max-width:880px; margin-top:46px;" />
+  </div>
+</section>
+
+<!-- ============ 最後 CTA ============ -->
+<section class="footer-cta">
+  <div class="inner reveal">
+    <img class="section-img" src="https://s.teachifycdn.com/image/width=2048,quality=80/school/images/9a530d24-a0f0-48c4-a591-db0a7909f3d3.png" alt="KIMU 的手繪小插畫" style="max-width:100%; margin:0 auto 30px;" />
+    <h2>可以先從這邊開始</h2>
+    <p class="cta-keep">領取 KIMU 的免費 Procreate 筆刷，<br>開啟你的繪畫小旅行。</p>
+    <a class="btn" href="https://course.kimu.art/digital-downloads/kimusbrushes2" target="_blank" rel="noopener"><span class="dot"></span>免費領取筆刷</a>
+  </div>
+</section>
+
+<footer>
+  <div class="bk">KIMUART</div>
+  <div class="links">
+    <a href="https://instagram.com/kimuart" target="_blank" rel="noopener">Instagram @kimuart</a><span>·</span><a href="https://www.youtube.com/@kimuart" target="_blank" rel="noopener">YouTube</a><span>·</span><a href="https://course.kimu.art/" target="_blank" rel="noopener">course.kimu.art</a><span>·</span>kimu@kimu.art
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+</script>
+</body>
+</html>
