@@ -191,9 +191,18 @@
   .reveal{opacity:0; transform:translateY(22px); transition:opacity .8s ease, transform .8s ease;}
   .reveal.in{opacity:1; transform:none;}
   @media(prefers-reduced-motion:reduce){ .reveal{opacity:1; transform:none; transition:none;} html{scroll-behavior:auto;} }
+
+  /* 限時活動公告列（2026/10 懶人速繪筆刷，活動結束後整段移除） */
+  .promo-bar{background:var(--glow); border-bottom:1px solid var(--sand-line); text-align:center; padding:11px 20px; font-size:.92rem; line-height:1.7; color:var(--ink); position:relative; z-index:3;}
+  .promo-bar a{color:var(--terra-deep); font-weight:500; text-decoration:none; border-bottom:1px solid var(--terra); margin-left:.5em; white-space:nowrap;}
+  .promo-bar .pb-tag{display:inline-block; font-size:.72rem; letter-spacing:.14em; color:#FFF8EF; background:var(--terra); border-radius:20px; padding:1px 10px; margin-right:.7em; font-weight:500;}
 </style>
 </head>
 <body>
+
+<!-- ============ 限時活動公告列（10/15 結束後移除） ============ -->
+<div class="promo-bar"><span class="pb-tag">限時活動</span>10/15 前填寫問卷，免費領取「懶人速繪筆刷」（原價 NT$299）<a href="https://course.kimu.art/digital-downloads/quicksketchbrush" target="_blank" rel="noopener">前往領取 →</a></div>
+
 
 <!-- ============ HERO BANNER ============ -->
 <div class="hero-band">
@@ -235,6 +244,10 @@
     </div>
     <img class="section-img mid reveal" src="https://s.teachifycdn.com/image/width=2048,quality=80/school/images/475758df-d9ae-48ce-81ac-68c8b2ad7ff4.png" alt="跟著 KIMU 畫下的生活小圖" style="margin-bottom:40px;" />
     <div class="fr-list reveal">
+      <div class="fr-item">
+        <span class="ic">✦</span>
+        <div><h3>限時・懶人速繪筆刷（10/15 止）</h3><p>填寫問卷即可免費領取，原價 NT$299。<a href="https://course.kimu.art/digital-downloads/quicksketchbrush" target="_blank" rel="noopener">前往領取 →</a></p></div>
+      </div>
       <div class="fr-item">
         <span class="ic">✦</span>
         <div><h3>免費 Procreate 筆刷</h3><p>KIMU 特調筆刷組，跟著畫就能畫出手繪水彩感。</p></div>
